@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-set -e
-
-docker build -t atomy/media-iot-client .
-docker tag atomy/media-iot-client:latest 613895955229.dkr.ecr.eu-central-1.amazonaws.com/atomy/media-iot-client

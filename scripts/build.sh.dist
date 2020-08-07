@@ -2,5 +2,11 @@
 
 set -e
 
-docker build -t atomy/media-iot-client .
-docker tag atomy/media-iot-client:latest xxxxxxxx.dkr.ecr.eu-central-1.amazonaws.com/atomy/media-iot-client
+# create builder and compile app
+docker build -f scripts/docker/armv7/build/Dockerfile -t atomy/media-iot-client-builder .
+docker run -v `pwd`:/app -w /app atomy/media-iot-client-builder ./gradlew clean fatJar --no-daemon
+
+# build app image
+docker build -f scripts/docker/armv7/bundle/Dockerfile -t atomy/media-iot-client .
+
+docker tag atomy/media-iot-client:latest xxxxx.dkr.ecr.eu-central-1.amazonaws.com/atomy/media-iot-client
