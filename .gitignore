@@ -1,4 +1,6 @@
 .idea/
 .gradle/
+
+build/*
 *.iml
-docker-compose.yml.dist
+docker-compose.yml

@@ -14,7 +14,9 @@ public class Main {
             System.out.println("running...");
 
             try {
-                Thread.sleep(500 * 1);
+                MetaSender metaSender = new MetaSender();
+                metaSender.send();
+                Thread.sleep(100 * 1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
