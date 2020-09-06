@@ -17,5 +17,8 @@ sed -i "s|xxx.dkr.ecr.eu-central-1.amazonaws.com|${ECR_PREFIX}|" docker-compose.
 cp scripts/build.sh.dist scripts/build.sh
 sed -i "s|xxx.dkr.ecr.eu-central-1.amazonaws.com|${ECR_PREFIX}|" scripts/build.sh
 
+cp scripts/buildAmd64.sh.dist scripts/buildAmd64.sh
+sed -i "s|xxx.dkr.ecr.eu-central-1.amazonaws.com|${ECR_PREFIX}|" scripts/buildAmd64.sh
+
 cp scripts/push.sh.dist scripts/push.sh
 sed -i "s|xxx.dkr.ecr.eu-central-1.amazonaws.com|${ECR_PREFIX}|" scripts/push.sh
