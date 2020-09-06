@@ -2,9 +2,9 @@
 
 set -e
 
-docker build -f scripts/docker/amd64/build/Dockerfile -t atomy/media-iot-client-builder .
+docker build -f scripts/docker/amd64/build/Dockerfile -t atomy/media-iot-emitter-builder .
 
-docker run -v `pwd`:/app -w /app atomy/media-iot-client-builder gradle fatJar
-docker build -f scripts/docker/amd64/bundle/Dockerfile -t atomy/media-iot-client .
+docker run -v `pwd`:/app -w /app atomy/media-iot-emitter-builder gradle fatJar
+docker build -f scripts/docker/amd64/bundle/Dockerfile -t atomy/media-iot-emitter .
 
-#docker tag atomy/media-iot-client:latest xxxxx.dkr.ecr.eu-central-1.amazonaws.com/atomy/media-iot-client
+docker tag atomy/media-iot-emitter:latest xxx.dkr.ecr.eu-central-1.amazonaws.com/atomy/media-iot-emitter

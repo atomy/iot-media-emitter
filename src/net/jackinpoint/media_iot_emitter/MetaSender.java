@@ -1,4 +1,4 @@
-package net.jackinpoint.media_iot_client;
+package net.jackinpoint.media_iot_emitter;
 
 /**
  *

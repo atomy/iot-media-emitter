@@ -1,13 +1,13 @@
-package net.jackinpoint.media_iot_client;
+package net.jackinpoint.media_iot_emitter;
 
 /**
- *
+ * Main class, entry class.
  */
 public class Main {
     /**
      * Main method.
      *
-     * @param args
+     * @param args String[]
      */
     public static void main(String[] args) {
         while (true) {
