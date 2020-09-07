@@ -30,3 +30,5 @@ if [ -z "$NEEDS_TAG" ]; then
 else
     echo "[auto-tag] Already a tag on this commit"
 fi
+
+echo $NEW_TAG > current_version

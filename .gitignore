@@ -1,6 +1,6 @@
 .idea/
 .gradle/
-
+current_version
 build/*
 *.iml
 docker-compose.yml

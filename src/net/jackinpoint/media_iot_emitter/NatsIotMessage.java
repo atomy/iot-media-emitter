@@ -1,9 +1,12 @@
 package net.jackinpoint.media_iot_emitter;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Class NatsIotMessage.
  */
 public class NatsIotMessage {
+    @SerializedName("emitter-version")
     public String emitterVersion;
 
     public String action;

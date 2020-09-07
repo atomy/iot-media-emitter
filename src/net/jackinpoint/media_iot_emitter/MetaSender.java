@@ -23,7 +23,7 @@ public class MetaSender {
         System.out.println("Emitting message...");
         NatsIotMessage natsIotMessage = new NatsIotMessage();
         natsIotMessage.action = "HEARTBEAT";
-        natsIotMessage.emitterVersion = "1.0.0"; // %TODO, get version from filesystem
+        natsIotMessage.emitterVersion = Config.getVersion();
         natsIotMessage.message = "HELLO WORLD"; // %TODO, put in `uptime`
 
         Gson gson = new Gson();

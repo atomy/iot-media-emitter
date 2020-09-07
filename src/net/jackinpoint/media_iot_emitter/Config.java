@@ -1,9 +1,15 @@
 package net.jackinpoint.media_iot_emitter;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 /**
  * Class Config.
  */
 public class Config {
+    public static String currentVersion;
+
     /**
      * Build and return nats-uri for connection.
      *
@@ -34,5 +40,27 @@ public class Config {
         }
 
         return String.format("nats://%s:%d", natsHost, natsPortNumber);
+    }
+
+    /**
+     * Read current version of app from file.
+     *
+     * @return String
+     */
+    public static String getVersion() {
+        if (null != Config.currentVersion && Config.currentVersion.length() > 0) {
+            return Config.currentVersion;
+        }
+
+        String fileContent = "0.0.0";
+
+        try {
+            fileContent = new String(Files.readAllBytes(Paths.get("current_version")));
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+        Config.currentVersion = fileContent.trim();
+        return Config.currentVersion;
     }
 }
