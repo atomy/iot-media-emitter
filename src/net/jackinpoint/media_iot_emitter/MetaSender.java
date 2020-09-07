@@ -1,5 +1,7 @@
 package net.jackinpoint.media_iot_emitter;
 
+import com.google.gson.Gson;
+
 /**
  * Class MetaSender.
  */
@@ -10,13 +12,23 @@ public class MetaSender {
         this.natsSender = new NatsSender();
     }
 
+    /**
+     * Sending a message to the NATS backend.
+     */
     public void send() {
+        if (!this.natsSender.isConnected()) {
+            this.natsSender.connect(Config.getNatsUri());
+        }
+
         System.out.println("Emitting message...");
         NatsIotMessage natsIotMessage = new NatsIotMessage();
         natsIotMessage.action = "HEARTBEAT";
         natsIotMessage.emitterVersion = "1.0.0"; // %TODO, get version from filesystem
-        natsIotMessage.message = "{}";
-        this.natsSender.sendMessage(message);
+        natsIotMessage.message = "HELLO WORLD"; // %TODO, put in `uptime`
+
+        Gson gson = new Gson();
+        String jsonMessage = gson.toJson(natsIotMessage);
+        this.natsSender.sendMessage(jsonMessage);
         System.out.println("Emitting message...DONE");
     }
 }

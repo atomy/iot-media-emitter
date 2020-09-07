@@ -10,13 +10,14 @@ public class Main {
      * @param args String[]
      */
     public static void main(String[] args) {
+        MetaSender metaSender = new MetaSender();
+
         while (true) {
             System.out.println("running...");
 
             try {
-                MetaSender metaSender = new MetaSender();
                 metaSender.send();
-                Thread.sleep(100 * 1);
+                Thread.sleep(500 * 1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

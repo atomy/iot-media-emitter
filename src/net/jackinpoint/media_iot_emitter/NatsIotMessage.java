@@ -10,5 +10,9 @@ public class NatsIotMessage {
 
     public String message;
 
-    public int timestamp;
+    public long timestamp;
+
+    public NatsIotMessage() {
+        this.timestamp = System.currentTimeMillis();
+    }
 }
