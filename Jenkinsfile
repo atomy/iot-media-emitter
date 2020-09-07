@@ -23,7 +23,7 @@ pipeline {
                 }
 
                 echo 'Building...'
-                sh './scripts/buildAmd64.sh'
+                sh './scripts/build.sh'
                 echo 'Building...DONE'
             }
         }
