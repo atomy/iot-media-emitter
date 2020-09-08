@@ -14,7 +14,7 @@ for ip in "${ips[@]}"
 do
     echo "Deyploing to: ${ip}..."
     scp -o StrictHostKeyChecking=no ~/.docker/config.json pi@${ip}:~/.docker/config.json
-    scp -o StrictHostKeyChecking=no docker-compose.yml pi@${ip}:/home/pi/apps/nats/docker-compose.yml
-    ssh -o StrictHostKeyChecking=no pi@${ip} "cd /home/pi/apps/nats && docker-compose pull && docker-compose up -d"
+    scp -o StrictHostKeyChecking=no docker-compose.yml pi@${ip}:/home/pi/apps/iot-media-emitter/docker-compose.yml
+    ssh -o StrictHostKeyChecking=no pi@${ip} "cd /home/pi/apps/iot-media-emitter && docker-compose pull && docker-compose up -d"
     echo "Deyploing to: ${ip}... DONE"
 done
