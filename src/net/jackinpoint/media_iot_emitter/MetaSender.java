@@ -25,6 +25,7 @@ public class MetaSender {
         natsIotMessage.action = "HEARTBEAT";
         natsIotMessage.emitterVersion = Config.getVersion();
         natsIotMessage.message = "HELLO WORLD"; // %TODO, put in `uptime`
+        natsIotMessage.hostname = Config.getHostname();
 
         Gson gson = new Gson();
         String jsonMessage = gson.toJson(natsIotMessage);

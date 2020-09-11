@@ -10,6 +10,8 @@ import java.nio.file.Paths;
 public class Config {
     public static String currentVersion;
 
+    public static String hostname;
+
     /**
      * Build and return nats-uri for connection.
      *
@@ -62,5 +64,27 @@ public class Config {
 
         Config.currentVersion = fileContent.trim();
         return Config.currentVersion;
+    }
+
+    /**
+     * Read hostname of host from file.
+     *
+     * @return String
+     */
+    public static String getHostname() {
+        if (null != Config.hostname && Config.hostname.length() > 0) {
+            return Config.hostname;
+        }
+
+        String fileContent = "N/A";
+
+        try {
+            fileContent = new String(Files.readAllBytes(Paths.get("hostname")));
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+        Config.hostname = fileContent.trim();
+        return Config.hostname;
     }
 }
