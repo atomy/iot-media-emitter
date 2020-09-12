@@ -1,6 +1,8 @@
 package net.jackinpoint.media_iot_emitter;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -86,5 +88,22 @@ public class Config {
 
         Config.hostname = fileContent.trim();
         return Config.hostname;
+    }
+
+    /**
+     * Read hostname of host from file.
+     *
+     * @return String
+     */
+    public static String getUptime() {
+        try {
+            Process uptimeProc = Runtime.getRuntime().exec("uptime");
+            BufferedReader in = new BufferedReader(new InputStreamReader(uptimeProc.getInputStream()));
+            String uptimeContent = in.readLine();
+
+            return uptimeContent.trim();
+        } catch (Exception exception) {
+            return "N/A";
+        }
     }
 }
