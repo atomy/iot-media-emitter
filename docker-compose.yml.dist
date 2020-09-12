@@ -5,4 +5,4 @@ java-cli:
     - NATS_HOST=192.168.2.20
     - NATS_PORT=4222
   volume:
-    - "./hostname:/app/hostname
+    - "./hostname:/app/hostname"
