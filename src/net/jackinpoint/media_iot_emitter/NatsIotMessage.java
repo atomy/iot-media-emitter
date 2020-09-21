@@ -17,7 +17,7 @@ public class NatsIotMessage {
 
     public String hostname;
 
-    public String uptime;
+    public String load;
 
     public NatsIotMessage() {
         this.timestamp = System.currentTimeMillis();

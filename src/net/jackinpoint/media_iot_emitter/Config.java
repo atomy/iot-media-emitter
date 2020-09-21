@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Class Config.
@@ -91,19 +93,27 @@ public class Config {
     }
 
     /**
-     * Read hostname of host from file.
+     * Read load of host from host.
      *
      * @return String
      */
-    public static String getUptime() {
+    public static String getLoad() {
         try {
             Process uptimeProc = Runtime.getRuntime().exec("uptime");
             BufferedReader in = new BufferedReader(new InputStreamReader(uptimeProc.getInputStream()));
             String uptimeContent = in.readLine();
+            String pattern = "^.*load average: (.*)$";
 
-            return uptimeContent.trim();
+            Pattern r = Pattern.compile(pattern);
+            Matcher m = r.matcher(uptimeContent);
+
+            if (m.find()) {
+                return m.group(1).trim();
+            }
         } catch (Exception exception) {
             return "N/A";
         }
+
+        return "N/A";
     }
 }
