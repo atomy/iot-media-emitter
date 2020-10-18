@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Class NatsIotMessage.
  */
 public class NatsIotMessage {
-    @SerializedName("emitter-version")
+    @SerializedName("emitter_version")
     public String emitterVersion;
 
     public String action;
