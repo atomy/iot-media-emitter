@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+set -x
 
 if [[ ! -f "docker-compose.yml" ]]
 then
@@ -8,7 +9,7 @@ then
   exit 1
 fi
 
-ips=( "2003:d4:1f23:ba00:5ff:4195:12d:ae12" "2003:d4:1f23:ba00:f4d0:9c00:206f:69fa" "2003:d4:1f23:ba00:2427:f7a3:3c10:c4ad" )
+ips=( "[2003:d4:1f23:ba00:5ff:4195:12d:ae12]" "[2003:d4:1f23:ba00:f4d0:9c00:206f:69fa]" "[2003:d4:1f23:ba00:2427:f7a3:3c10:c4ad]" )
 
 for ip in "${ips[@]}"
 do
